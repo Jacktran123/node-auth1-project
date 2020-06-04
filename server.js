@@ -8,7 +8,7 @@ const apiRouter=require('./Api-Router');
 const restricted=require('./restricted-middleware');
 
 const server= express();
-server.use('/api',apiRouter)
+
 
 const sessionConfig={
     name:'sksession',
@@ -33,5 +33,6 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors());
 server.use(session(sessionConfig));
+server.use('/api',apiRouter)
 
 module.exports=server
